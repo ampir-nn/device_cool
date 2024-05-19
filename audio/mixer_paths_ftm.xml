@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mixer>
+    <!-- These are the initial mixer settings -->
+    <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="0" />
+    <ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="0" />
+    <ctl name="QUAT_MI2S_RX_Voice Mixer Voice2" value="0" />
+    <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer Voice2" value="0" />
+    <ctl name="PRI_MI2S_RX_Voice Mixer CSVoice" value="0" />
+
+    <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="0" />
+    <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="0" />
+
+    <ctl name="SLIM_0_RX_Voice Mixer Voice Stub" value="0" />
+    <ctl name="SLIMBUS_0_RX Port Mixer AUX_PCM_UL_TX" value="0" />
+    <ctl name="AUX_PCM_RX_Voice Mixer Voice Stub" value="0" />
+    <ctl name="Voice Stub Tx Mixer SLIM_0_TX" value="0" />
+    <ctl name="Voice Stub Tx Mixer AUX_PCM_UL_TX" value="0" />
+
+    <ctl name="Speaker Boost" value="DISABLE" />
+    <ctl name="RX1 Digital Volume" value="0" />
+    <ctl name="RX2 Digital Volume" value="0" />
+    <ctl name="RX3 Digital Volume" value="84" />
+    <ctl name="DEC1 MUX" value="ZERO" />
+    <ctl name="IIR1 INP1 MUX" value="ZERO" />
+
+    <ctl name="RX1 MIX1 INP1" value="ZERO" />
+    <ctl name="RX2 MIX1 INP1" value="ZERO" />
+    <ctl name="RX2 MIX1 INP2" value="ZERO" />
+    <ctl name="RX3 MIX1 INP1" value="ZERO" />
+    <ctl name="RDAC2 MUX" value="ZERO" />
+    <ctl name="HPHL" value="ZERO" />
+    <ctl name="HPHR" value="ZERO" />
+
+    <ctl name="EAR_S" value="ZERO" />
+    <ctl name="EAR PA Gain" value="POS_6_DB" />
+
+    <ctl name="LOOPBACK Mode" value="DISABLE" />
+    <ctl name="MI2S_RX Channels" value="One" />
+    <ctl name="Loopback MCLK" value="DISABLE" />
+
+    <ctl name="ADC2 MUX" value="ZERO" />
+
+    <ctl name="TX1 HPF Switch" value="off" />
+
+    <!-- the initial mixer settings end -->
+
+    <path name="ftm_verb_hifi">
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
+    <path name="ftm_verb_voice">
+        <ctl name="PRI_MI2S_RX_Voice Mixer CSVoice" value="1" />
+        <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
+    </path>
+
+    <path name="ftm_verb_voice2">
+        <ctl name="PRI_MI2S_RX_Voice Mixer Voice2" value="1" />
+        <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
+    </path>
+
+    <path name="ftm_speaker">
+        <ctl name="RX3 MIX1 INP1" value="RX1" />
+        <ctl name="SPK" value="Switch" />
+    </path>
+
+    <path name="ftm_pa_speaker">
+        <ctl name="MI2S_RX Channels" value="One" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RX2 MIX1 INP1" value="RX2" />
+        <ctl name="RDAC2 MUX" value="RX2" />
+        <ctl name="HPHL" value="Switch" />
+        <ctl name="HPHR" value="Switch" />
+        <ctl name="RX1 Digital Volume" value="81" />
+        <ctl name="RX2 Digital Volume" value="81" />
+        <ctl name="Ext Spk Switch" value="On" />
+    </path>
+
+    <path name="ftm_headphones">
+        <ctl name="MI2S_RX Channels" value="Two" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RX2 MIX1 INP1" value="RX2" />
+        <ctl name="RDAC2 MUX" value="RX2" />
+        <ctl name="HPHL" value="Switch" />
+        <ctl name="HPHR" value="Switch" />
+        <ctl name="RX1 Digital Volume" value="81" />
+        <ctl name="RX2 Digital Volume" value="81" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
+    <path name="ftm_earpiece">
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RDAC2 MUX" value="RX1" />
+        <ctl name="EAR_S" value="Switch" />
+        <ctl name="EAR PA Gain" value="POS_6_DB" />
+        <ctl name="RX1 Digital Volume" value="90" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
+    <path name="ftm_mainmic">
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="IIR1 INP1 MUX" value="DEC1" />
+    </path>
+
+    <!-- first mic1 to headset left -->
+    <path name="ftm_mainmic_loop">
+        <ctl name="LOOPBACK Mode" value="ENABLE" />
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="MI2S_RX Channels" value="Two" />
+        <ctl name="IIR1 INP1 MUX" value="DEC1" />
+        <ctl name="IIR1 INP1 Volume" value="84" />
+        <ctl name="RX1 MIX1 INP1" value="IIR1" />
+        <ctl name="RX2 MIX1 INP1" value="IIR1" />
+        <ctl name="RDAC2 MUX" value="RX1" />
+        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="Loopback MCLK" value="ENABLE" />
+        <ctl name="HPHL" value="Switch" />
+        <ctl name="HPHR" value="0" />
+    </path>
+
+    <!-- second mic2 to headset left -->
+    <path name="ftm_refmic_loop">
+        <ctl name="LOOPBACK Mode" value="ENABLE" />
+        <ctl name="DEC1 MUX" value="ADC3" />
+        <ctl name="ADC2 MUX" value="INP3" />
+        <ctl name="IIR1 INP1 MUX" value="DEC1" />
+        <ctl name="IIR1 INP1 Volume" value="84" />
+        <ctl name="MI2S_RX Channels" value="Two" />
+        <ctl name="RX1 MIX1 INP1" value="IIR1" />
+        <ctl name="RX2 MIX1 INP1" value="IIR1" />
+        <ctl name="RDAC2 MUX" value="RX1" />
+        <ctl name="ADC3 Volume" value="6" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="Loopback MCLK" value="ENABLE" />
+        <ctl name="HPHL" value="Switch" />
+        <ctl name="HPHR" value="ZERO" />
+    </path>
+
+    <!-- headset mic to headset right -->
+    <path name="ftm_hsmic_loop">
+        <ctl name="LOOPBACK Mode" value="ENABLE" />
+        <ctl name="DEC1 MUX" value="ADC2" />
+        <ctl name="ADC2 MUX" value="INP2" />
+        <ctl name="RDAC2 MUX" value="RX2" />
+        <ctl name="IIR1 INP1 MUX" value="DEC1" />
+        <ctl name="IIR1 INP1 Volume" value="88" />
+        <ctl name="RX2 MIX1 INP2" value="IIR1" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="Loopback MCLK" value="ENABLE" />
+        <ctl name="HPHL" value="ZERO" />
+        <ctl name="HPHR" value="Switch" />
+    </path>
+
+    <!-- the speaker to the loudest -->
+    <path name="ftm_speaker_max_volume">
+        <ctl name="RX3 Digital Volume" value="100" />
+    </path>
+</mixer>
